@@ -1,9 +1,12 @@
 ---
 title: "Git feature branch workflow"
 format: html
+embed-resources: true
 ---
 
 Short tutorial on how to use version control in RStudio via Git (local) and Github (remote). The focus is on creating branches, committing to them, pushing to the remote on Github, and merging via pull request.
+
+## Set up a project
 
 ### Prepare for a project with version control
 
@@ -17,18 +20,43 @@ On [Github.com](https://github.com/)
 In RStudio: set up new project
 
 -   File \> New project \> Version Control \> Git
--   Paste the URL of the repo 
-- Choose directory for the project
-- Create a file, e.g. `first.R`.
+-   Paste the URL of the repo
+-   Choose directory for the project
+-   Create a file, e.g. first.R.
 
 ### First commit in main
 
 Working via the Terminal (tab next to Console) provides the most control over workflow
 
 `$git status -s` checks the status of the new (unstaged) files
+
 `$git add .` stages all the new, modified, unstaged files... (check via `status` again)
 
+`$git commit -m "initial commit"` a direct commit with a custom message
 
+### Check the history of commits
 
+`$git log --all --graph` graph of commit history
 
+`q` to exit the log graph
+
+## Workflow to develop new feature
+
+### Create a branch
+
+`$git branch new_feature` create the new branch with a custom name
+
+`$git checkout new_feature` go to that branch
+
+::: callout-note
+# create and checkout new branch can be done in one step
+
+`$git checkout -b new_feature`
+:::
+
+`git branch -a` show all branches and the one that is checked out (shown with *)
+
+### commit to branch
+
+Create a new file to start developing a feature (e.g. second.R).
 
